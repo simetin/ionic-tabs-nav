@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  {
-    path: '',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
-  }
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', loadChildren: './home/home.module#HomePageModule' },
+  { path: 'view1', loadChildren: './view1/view1.module#View1PageModule' },
+  { path: 'tabs', loadChildren: './tabs/tabs.module#TabsPageModule' }
 ];
 @NgModule({
   imports: [

@@ -10,43 +10,32 @@ const routes: Routes = [
       {
         path: 'tab1',
         children: [
-          {
-            path: '',
-            loadChildren: () =>
-              import('../tab1/tab1.module').then(m => m.Tab1PageModule)
-          }
+          { path: '', loadChildren: '../tab1/tab1.module#Tab1PageModule'},
+          { path: 'view1', loadChildren: '../view1/view1.module#View1PageModule'},
         ]
+      },
+      {
+        path: 'view1',
+        children: [{ path: '', loadChildren: '../view1/view1.module#View1PageModule'}]
       },
       {
         path: 'tab2',
-        children: [
-          {
-            path: '',
-            loadChildren: () =>
-              import('../tab2/tab2.module').then(m => m.Tab2PageModule)
-          }
-        ]
+        children: [{ path: '', loadChildren: '../tab2/tab2.module#Tab2PageModule' }]
       },
       {
         path: 'tab3',
-        children: [
-          {
-            path: '',
-            loadChildren: () =>
-              import('../tab3/tab3.module').then(m => m.Tab3PageModule)
-          }
-        ]
+        children: [{ path: '', loadChildren: '../tab3/tab3.module#Tab3PageModule' }]
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/tabs/tabs/tab1',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/tabs/tabs/tab1',
     pathMatch: 'full'
   }
 ];
